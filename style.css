@@ -1,0 +1,15 @@
+#myId{
+    background-color: red;
+}
+#test{
+    background-color: red;
+}
+.inner{
+	display: block;
+	color:red;
+	margin:auto;
+	border:2px solid black;
+}
+.outer {
+	display: inline-block;
+}
