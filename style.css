@@ -17,8 +17,15 @@ div{
 #container div {
     color:red;
     border:1px dotted black;
-    margin:auto;
 }
 #container{
-    display:block;
+    width:50%;
+    margin:0 auto;
+}
+#clear{
+    display:inline-block;
+    padding:20px;
+    border:1px solid black;
+    border-radius:4px;
+    margin-left:400px;
 }

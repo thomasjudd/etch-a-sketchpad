@@ -16,8 +16,13 @@ for(i = 0; i < 16; i++){
 }
 document.write(divClose);
 
+document.write("<div id='clear'>Clear!</div>");
+
 $(document).ready(function(){
 	$('.inner').on('mouseenter', function(){
 		$(this).css({'background-color':'red'});
+	});
+	$('#clear').on('click', function(){
+		$('.inner').css({'background-color':'white'});
 	});
 });
