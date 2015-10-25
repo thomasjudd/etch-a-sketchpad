@@ -7,7 +7,7 @@ var innerDiv = "<div class='inner'></div>";
 var containerOpen = "<div id='container'>";
 
     //scaling
-    var scale = document.getElementById('scale');
+    //var scale = document.getElementById('.scale');
 
     var rows = 4;
     var cols = 4;
@@ -26,8 +26,9 @@ function generateGrid(rows, cols){
 
 generateGrid(rows, cols);
 
-    document.write("<div id='clear' class='button'>Clear!</div>");
-    document.write("<div id='scale' class='button'>Scale!</div>");
+document.write("<div id='clear' class='button'>Clear!</div>");
+document.write("<div id='scale' class='button'>Scale!</div>");
+
 $(document).ready(function(){
     $('.inner').on('mouseenter', function(){
  	$(this).css({'background-color':'red'});
@@ -38,8 +39,14 @@ $(document).ready(function(){
     $('#scale').on('click', function(){
         $('.inner').remove();
         $('.outer').remove();
-        var numrows = document.getElementById('numrows');
-	$('p').val();
+        var numrows = document.getElementById('numrows').value;
+	var numcols = document.getElementById('numcols').value;
+	for(var i = 0;i < 10; i++){
+		$('#container').append('<div class="outer">');
+		for(var j = 0; j < 10; j++){
+		    $('#container').append('<div class="inner"></div>');
+		}
+		$('#container').append('</div>');
+	}
     });
 });
-
