@@ -1,11 +1,9 @@
-//document.write("Hello, World from javascript");
-
 var outerDivOpen = "<div class='row'>";
 var divClose = "</div>";
 var innerDiv = "<div class='cell'></div>";
 var containerOpen = "<div id='container'>";
+var size = 4; 
 
-    var size = 4;
 function generateGrid(size){    
     document.write(containerOpen);
     for(i = 0; i < size; i++){
@@ -38,8 +36,11 @@ $(document).ready(function(){
 	for(var i = 0; i < newsize; i++){
 	    $('#container').append($row.clone());
 	}
+	$('.cell').on('mouseenter', function(){
+		$(this).css({'background-color':'red'});
+	});
     });
-    $('.cell').on('mouseenter', function(){
+    $(".cell").on('mouseenter', function(){
         $(this).css({'background-color': 'red'});
     });
 });
