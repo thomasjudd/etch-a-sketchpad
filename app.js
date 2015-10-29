@@ -1,22 +1,16 @@
 //document.write("Hello, World from javascript");
 
-var outerDivOpen = "<div class='outer'>";
-//var div = document.createElement("div");
+var outerDivOpen = "<div class='row'>";
 var divClose = "</div>";
-var innerDiv = "<div class='inner'></div>";
+var innerDiv = "<div class='cell'></div>";
 var containerOpen = "<div id='container'>";
 
-    //scaling
-    //var scale = document.getElementById('.scale');
-
-    var rows = 4;
-    var cols = 4;
-function generateGrid(rows, cols){    
-    //rows = $('#rows').val();
+    var size = 4;
+function generateGrid(size){    
     document.write(containerOpen);
-    for(i = 0; i < cols; i++){
+    for(i = 0; i < size; i++){
         document.write(outerDivOpen);
-        for(j = 0; j < rows; j++){
+        for(j = 0; j < size; j++){
             document.write(innerDiv);
         }
         document.write(divClose);
@@ -24,29 +18,28 @@ function generateGrid(rows, cols){
     document.write(divClose);
 }
 
-generateGrid(rows, cols);
-
-document.write("<div id='clear' class='button'>Clear!</div>");
-document.write("<div id='scale' class='button'>Scale!</div>");
+generateGrid(size);
 
 $(document).ready(function(){
-    $('.inner').on('mouseenter', function(){
- 	$(this).css({'background-color':'red'});
-    });
     $('#clear').on('click', function(){
-	$('.inner').css({'background-color':'white'});
+	$('.cell').css({'background-color':'white'});
     });
     $('#scale').on('click', function(){
-        $('.inner').remove();
-        $('.outer').remove();
-        var numrows = document.getElementById('numrows').value;
-	var numcols = document.getElementById('numcols').value;
-	for(var i = 0;i < 10; i++){
-		$('#container').append('<div class="outer">');
-		for(var j = 0; j < 10; j++){
-		    $('#container').append('<div class="inner"></div>');
-		}
-		$('#container').append('</div>');
+	var entered_size = prompt('enter a new size');
+	newsize = parseInt(entered_size);
+        $('.cell').remove();
+        $('.row').remove();
+	var $row = $('<div />', {class:'row'});
+	var $cell = $('<div />', {class:'cell'});
+	
+	for(var i = 0; i < newsize; i++){
+	    $row.append($cell.clone());
 	}
+	for(var i = 0; i < newsize; i++){
+	    $('#container').append($row.clone());
+	}
+    });
+    $('.cell').on('mouseenter', function(){
+        $(this).css({'background-color': 'red'});
     });
 });

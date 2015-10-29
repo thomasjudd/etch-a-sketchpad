@@ -1,22 +1,16 @@
-#myId{
-    background-color: red;
+.cell{
+    display: block;
+    padding:15px;
+    border:1px dotted black;
+    color:red;
 }
-#test{
-    background-color: red;
-}
-.inner{
-	display: block;
-	padding:15px;
-	border:1px dotted black;
-}
-.outer {
-	display: inline-block;
+.row{
+    display: inline-block;
 }
 div{
     background-color: white;
 }
 #container div {
-    color:red;
 }
 #container{
     width:50%;
