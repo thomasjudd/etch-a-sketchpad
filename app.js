@@ -2,7 +2,7 @@ var outerDivOpen = "<div class='row'>";
 var divClose = "</div>";
 var innerDiv = "<div class='cell'></div>";
 var containerOpen = "<div id='container'>";
-var size = 4; 
+var size = 8; 
 
 function generateGrid(size){    
     document.write(containerOpen);
@@ -24,12 +24,21 @@ $(document).ready(function(){
     });
     $('#scale').on('click', function(){
 	var entered_size = prompt('enter a new size');
-	newsize = parseInt(entered_size);
+	var newsize = parseInt(entered_size);
+
+	//plus 2 to account for borderpx
+	var gridlength = 2 * size * (parseInt($('.cell').css('padding-right').replace("px","")) + 1);
+	console.log(gridlength);
+
         $('.cell').remove();
         $('.row').remove();
+        	
 	var $row = $('<div />', {class:'row'});
 	var $cell = $('<div />', {class:'cell'});
-	
+	var newpadding = gridlength/(2*newsize)-1;
+	console.log(newpadding);
+	$cell.css({'padding': newpadding+"px"});
+
 	for(var i = 0; i < newsize; i++){
 	    $row.append($cell.clone());
 	}
